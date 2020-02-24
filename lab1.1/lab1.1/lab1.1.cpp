@@ -10,6 +10,12 @@
 using namespace std;
 using namespace boost;
 
+
+
+
+
+
+
 int main()
 {
     vector<size_t> v = { 7, 1, 12, 5, 9, 20, 15 };

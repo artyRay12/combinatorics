@@ -7,6 +7,7 @@
 using namespace std;
 using namespace boost;
 
+
 const int N = 5;
 
 int main()
