@@ -11,11 +11,6 @@ using namespace std;
 using namespace boost;
 
 
-
-
-
-
-
 int main()
 {
     vector<size_t> v = { 7, 1, 12, 5, 9, 20, 15 };
@@ -30,8 +25,7 @@ int main()
         cout << endl;
     } while (next_permutation(v.begin(), v.end()));
 
-    double duration = t.elapsed();
-    cout << duration << endl;
+    cout << t.elapsed() << endl;
 
     return 0;
 }
