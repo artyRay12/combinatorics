@@ -14,7 +14,7 @@ int main()
 {
 	int N = 5;
 	int m = N + 1;
-	boost::timer t;
+	timer t;
 	vector<int> p(N + 2), r(N + 1);
 	vector<int> d(N + 1);
 
@@ -29,7 +29,7 @@ int main()
 	t.restart();
 	while (m != 1)
 	{
-		copy(p.begin() + 1, p.end() - 1, std::ostream_iterator<size_t>(std::cout, " "));
+		copy(p.begin() + 1, p.end() - 1, std::ostream_iterator<size_t>(cout, " "));
 		cout << endl;
 		system("pause");
 		m = N;
@@ -37,13 +37,13 @@ int main()
 		{
 			d[m] = -d[m];
 			m = m - 1;
-
 		}
+
 		swap(p[r[m]], p[r[m] + d[m]]);
 		swap(r[p[r[m]]], r[m]);
 	}
 
-	cout << t.elapsed() << std::endl;
+	cout << t.elapsed() << endl;
 
 	return 0;
 }
