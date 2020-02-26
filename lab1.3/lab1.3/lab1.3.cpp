@@ -9,18 +9,19 @@
 using namespace std;
 
 const int DECK_SIZE = 10;
+const int RESHUFFLE_BUTTON_CODE = 114;
 
-int getRandomNumber(int min, int max)
+int GetRandomNumber()
 {
-	static const double fraction = 1.0 / (static_cast<double>(RAND_MAX) + 1.0);
-	return static_cast<int>(rand() * fraction * (max - min + 1) + min);
+	static const double fraction = 1.0 / (static_cast<double>(RAND_MAX));
+	return static_cast<int>(rand() * fraction * DECK_SIZE);
 }
 
-void shuffleDeck(vector<size_t>& deck)
+void ShuffleDeck(vector<size_t>& deck)
 {
 	for (int i = 0; i <= DECK_SIZE; i++)
 	{
-		swap(deck[i], deck[getRandomNumber(0, DECK_SIZE)]);
+		swap(deck[i], deck[GetRandomNumber()]);
 	}
 }
 
@@ -35,24 +36,23 @@ int main()
 	int buttonCode = 0;
 	while (1)
 	{
-
 		copy(deck.begin(), deck.end() - 1, std::ostream_iterator<size_t>(cout, " "));
-		cout << "\npress 'R' for shuffle" << endl;
+		cout << "\npress 'R' for shuffle or any for quit" << endl;
 		cout << endl;
 
 		buttonCode = _getch();
 		
-		if (buttonCode == 114)
+		if (buttonCode == RESHUFFLE_BUTTON_CODE)
 		{
-			shuffleDeck(deck);
+			ShuffleDeck(deck);
 		}
 		else
 		{
 			break;
 		}
 	}
+
 	return 0;
-	
 }
 
 
